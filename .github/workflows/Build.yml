@@ -23,4 +23,4 @@ jobs:
 
     - name: Build with Maven
       id: build_with_maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B -DskipTests package --file pom.xml
