@@ -21,12 +21,15 @@ jobs:
       id: create_release
       uses: actions/create-release@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ github.ref }}
         release_name: ${{ github.ref }}
         draft: false
         prerelease: false
+    - name: pwd
+      id: pwd
+      run: echo ::set-output name=PWD::${pwd}
     - name: Get the version
       id: get_version
       run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
@@ -36,7 +39,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: target/simple-app-${{ steps.get_version.outputs.VERSION }}-mule-application.jar
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: target/simple-app-${{ steps.pwd.outputs.pwd }}-mule-application.jar
         asset_name: simple-app-${{ steps.get_version.outputs.VERSION }}-mule-application.jar
         asset_content_type: application/octet-stream
