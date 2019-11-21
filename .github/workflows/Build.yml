@@ -18,4 +18,5 @@ jobs:
     - name: Checkout the Code
       uses: actions/checkout@v1
     - name: Build with Maven
+      uses: comchangs/action-maven@master
       run: mvn -B package --file pom.xml
