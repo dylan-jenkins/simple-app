@@ -18,8 +18,6 @@ jobs:
     - name: Checkout the Code
       uses: actions/checkout@v1
     - name: Build with Maven
-      id: build_with_maven
-//      run: mvn -B package --file pom.xml
       uses: LucaFeger/action-maven-cli@1.0.2
       with:
         cmd: mvn -B package --file pom.xml
