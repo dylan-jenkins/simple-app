@@ -27,9 +27,6 @@ jobs:
         release_name: ${{ github.ref }}
         draft: false
         prerelease: false
-    - name: pwd
-      id: pwd
-      run: echo ::set-output name=PWD::${pwd}
     - name: Get the version
       id: get_version
       run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
@@ -40,6 +37,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: target/simple-app-${{ steps.pwd.outputs.pwd }}-mule-application.jar
+        asset_path: ./target/simple-app-${{ steps.get_version.outputs.VERSION }}-mule-application.jar
         asset_name: simple-app-${{ steps.get_version.outputs.VERSION }}-mule-application.jar
         asset_content_type: application/octet-stream
