@@ -4,18 +4,18 @@
 
 	<groupId>com.mycompany</groupId>
 	<artifactId>parent-pom</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
 
 	<name>parent-pom</name>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding><
-    <app.runtime>4.3.0</app.runtime>
-    mule.maven.plugin.version>3.3.5</mule.maven.plugin.version>
-    <munit.version>2.2.5</munit.version>
-  </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<app.runtime>4.3.0</app.runtime>
+		<mule.maven.plugin.version>3.3.5</mule.maven.plugin.version>
+		<munit.version>2.2.5</munit.version>
+	</properties>
 
 	<build>
 		<plugins>
@@ -28,7 +28,7 @@
 				<classifier>mule-application</classifier>
                 </configuration>
 			</plugin>
-		<plugin>
+			<plugin>
                 <groupId>com.mulesoft.munit.tools</groupId>
                 <artifactId>munit-maven-plugin</artifactId>
                 <version>${munit.version}</version>
@@ -74,7 +74,7 @@
             <classifier>mule-plugin</classifier>
             <scope>test</scope>
         </dependency>
-	<dependency>
+		<dependency>
             <groupId>com.mulesoft.munit</groupId>
             <artifactId>munit-tools</artifactId>
             <version>${munit.version}</version>
